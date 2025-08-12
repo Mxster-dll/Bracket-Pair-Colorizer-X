@@ -1,0 +1,204 @@
+{
+    "name": "bracket-pair-colorizer-x",
+    "displayName": "Bracket Pair Colorizer X",
+    "description": "BPC 正在死去，VSC 尚未到来。但世界不会再度灼烧，因为你将登上「神」之座。",
+    "version": "0.0.0",
+    "publisher": "CoenraadS, Mxster",
+    "engines": {
+        "vscode": "^1.102.0"
+    },
+    "icon": "images/icon.png",
+    "categories": [
+        "Other"
+    ],
+    "extensionKind": [
+        "ui",
+        "workspace"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "keywords": [
+        "bracket",
+        "brackets",
+        "pair",
+        "color",
+        "colour",
+        "multi-root ready"
+    ],
+    "galleryBanner": {
+        "color": "#1E1E1E",
+        "theme": "dark"
+    },
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "bracket-pair-colorizer-x.expandBracketSelection",
+                "title": "Expand Bracket Selection"
+            },
+            {
+                "command": "bracket-pair-colorizer-x.undoBracketSelection",
+                "title": "Undo Bracket Selection"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Bracket Pair Colorizer X",
+            "properties": {
+                "bracket-pair-colorizer-x.colors": {
+                    "type": "array",
+                    "default": [
+                        "#74c0fc",
+                        "#66d9e8",
+                        "#63e6be",
+                        "#8ce99a",
+                        "#c0eb75",
+                        "#ffe066",
+                        "#ffc078",
+                        "#ffa8a8",
+                        "#faa2c1",
+                        "#e599f7",
+                        "#b197fc",
+                        "#91a7ff"
+                    ],
+                    "description": "Scope colors\n括号的颜色，按列表循环",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.unmatchedScopeColor": {
+                    "type": "string",
+                    "default": "Red",
+                    "description": "Unmatched Scope Color\n未匹配括号的颜色",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.forceUniqueOpeningColor": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Ensure that an opening brackets color does not match a previous brackets color\n强制使用独特的颜色，确保开括号的颜色不会与之前的括号颜色相同",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.forceIterationColorCycle": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Should opening brackets iterate the color cycle even if they are not nested\n强制使用颜色循环，确保开括号即使不嵌套也会使用颜色循环",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.colorMode": {
+                    "type": "string",
+                    "enum": [
+                        "Consecutive",
+                        "Independent"
+                    ],
+                    "default": "Consecutive",
+                    "description": "Should different brackets share a color group (Consecutive), or use their own color group (Independent)\n不同括号是否共享颜色组（连续）或使用自己的颜色组（独立）",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.highlightActiveScope": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Should the active scope brackets always be highlighted? Recommended to disable editor.matchBrackets if using this feature.\n是否高亮显示活动括号范围？建议在使用此功能时禁用编辑器的匹配括号功能。",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.activeScopeCSS": {
+                    "type": "array",
+                    "default": [
+                        "borderStyle : solid",
+                        "borderWidth : 1px",
+                        "borderColor : {color}",
+                        "opacity: 0.5"
+                    ],
+                    "description": "CSS for the active scope. Use {color} to match the bracket color. The string types listed at https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions can be used\n活动括号范围的 CSS。使用 {color} 来匹配括号颜色。可以使用 https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions 中列出的字符串类型",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.showBracketsInGutter": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show active bracket scope in gutter?\n在侧边栏显示活动括号范围？",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.showBracketsInRuler": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show active bracket scope in ruler?\n在标尺中显示活动括号范围？",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.rulerPosition": {
+                    "type": "string",
+                    "enum": [
+                        "Center",
+                        "Full",
+                        "Left",
+                        "Right"
+                    ],
+                    "default": "Full",
+                    "description": "Show active bracket scope in ruler?\n在标尺中显示活动括号范围？",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.showVerticalScopeLine": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show a vertical line on the left side of the editor representing the active bracket scope?\n在编辑器左侧显示一条垂直线，表示活动括号范围？",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.showHorizontalScopeLine": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show a horizontal line to create a block around the active bracket scope?\n在活动括号范围周围显示一条水平线以创建一个块？",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.scopeLineRelativePosition": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "True: Scope Line will start from the ending bracket position. False: Scope Line will always be at column 0\n相对位置：Scope Line 将从结束括号位置开始。绝对位置：Scope Line 将始终位于第 0 列",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.scopeLineCSS": {
+                    "type": "array",
+                    "default": [
+                        "borderStyle : ridge",
+                        "borderWidth : 2px",
+                        "borderColor : {color}",
+                        "opacity: 0.9"
+                    ],
+                    "description": "CSS for the scope line. Use {color} to match the bracket color. The string types listed at https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions can be used\n作用域线的 CSS。使用 {color} 来匹配括号颜色。可以使用 https://code.visualstudio.com/docs/extensionAPI/vscode-api#DecorationRenderOptions 中列出的字符串类型",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.excludedLanguages": {
+                    "type": "array",
+                    "default": [],
+                    "description": "Don't colorize files of these languages\n不为这些语言的文件着色",
+                    "scope": "window"
+                },
+                "bracket-pair-colorizer-x.depreciation-notice": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show notice extension is deprecated\n显示扩展已弃用的通知",
+                    "scope": "window"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/json5": "0.0.30",
+        "@types/node": "^6.14.13",
+        "@types/vscode": "^1.102.0",
+        "tslint": "^4.5.1",
+        "typescript": "^4.9.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mxster/Bracket-Pair-Colorizer-X"
+    },
+    "license": "SEE LICENSE IN LICENSE.md",
+    "dependencies": {
+        "escape-html": "^1.0.3",
+        "json5": "^2.2.0",
+        "vscode-oniguruma": "^2.0.1",
+        "vscode-textmate": "^9.2.0",
+        "vscode-uri": "^1.0.6"
+    }
+}
