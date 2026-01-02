@@ -112,7 +112,7 @@
                 },
                 "bracket-pair-colorizer-x.showBracketsInGutter": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Show active bracket scope in gutter?\n在侧边栏显示活动括号范围？",
                     "scope": "window"
                 },
