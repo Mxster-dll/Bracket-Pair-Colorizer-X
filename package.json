@@ -2,7 +2,7 @@
     "name": "bracket-pair-colorizer-x",
     "displayName": "Bracket Pair Colorizer X",
     "description": "BPC 正在死去，VSC 尚未到来。但世界不会再度灼烧，因为你将登上「神」之座。",
-    "version": "0.0.0",
+    "version": "0.0.2",
     "publisher": "CoenraadS, Mxster",
     "engines": {
         "vscode": "^1.102.0"
@@ -50,16 +50,16 @@
                     "type": "array",
                     "default": [
                         "#74c0fc",
-                        "#66d9e8",
-                        "#63e6be",
-                        "#8ce99a",
-                        "#c0eb75",
-                        "#ffe066",
                         "#ffc078",
-                        "#ffa8a8",
-                        "#faa2c1",
+                        "#8ce99a",
                         "#e599f7",
+                        "#66d9e8",
+                        "#ffa8a8",
+                        "#c0eb75",
                         "#b197fc",
+                        "#63e6be",
+                        "#faa2c1",
+                        "#ffe066",
                         "#91a7ff"
                     ],
                     "description": "Scope colors\n括号的颜色，按列表循环",
